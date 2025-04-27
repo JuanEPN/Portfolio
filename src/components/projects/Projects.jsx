@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import '../styles/Projects.css'; 
+import "./Projects.css"; 
 
 function Projects() {
     const [repos, setRepos] = useState([]);
