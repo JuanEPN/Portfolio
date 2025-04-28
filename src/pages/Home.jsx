@@ -1,5 +1,5 @@
 import "./Home.css";
-import Encabezado from "../components/header/Encabezado";
+import Encabezado from "../components/Header/Encabezado";
 import About from "../components/about/About";
 import Projects from "../components/projects/Projects";
 import Skills from "../components/skills/Skills";
