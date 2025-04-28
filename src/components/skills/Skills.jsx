@@ -1,6 +1,6 @@
 import "./Skills.css";
 
-function Skills() {
+const Skills = () => {
     const skills = [
         { name: 'JavaScript', level: 'Medio' },
         { name: 'Python', level: 'Alto' },

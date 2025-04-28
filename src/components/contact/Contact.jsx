@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Contact.css"; 
 
-function Contact() {
+const Contact = () => {
     const [formData, setFormData] = useState({
         name: "Juan Esteban Pereira Neira",
         email: "juanestebanpereiraneira@gmail.com",

@@ -1,24 +1,30 @@
 import "./Home.css";
-import Header from "../components/header/Header";
-import About from "../components/about/About";
-import Skills from "../components/skills/Skills";
-import Projects from "../components/projects/Projects";
-import Contact from "../components/contact/Contact";
-import Footer from "../components/footer/Footer";
+import Encabezado from "../components/header/Encabezado.jsx";
+import About from "../components/about/About.jsx";
+import Projects from "../components/projects/Projects.jsx";
+import Skills from "../components/skills/Skills.jsx";
+import Contact from "../components/contact/Contact.jsx";
+import Footer from "../components/footer/Footer.jsx";
+import { Link } from "react-router-dom";
 
-function Home() {
-  return (
-    <div className="portfolio-container">
-      <Header />
-      <main>
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
+const Home = () => {
+    return (
+        <div className="portfolio-container">
+            <Encabezado />
+            <main>
+                <About />
+                <Projects />
+                <Skills />
+                <Contact />
+                <section className="forum-cta">
+                    <h2>Visista mi blog/foro</h2>
+                    <p>Comenta algo</p>
+                    <Link to="/forum" className="cta-button">Visitar</Link>
+                </section>
+            </main>
+            <Footer />
+
+        </div>
+    );
 }
-
-export default Home;
+export default Home; 

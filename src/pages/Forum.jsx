@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Forum.css";
 
-function Forum() {
+const Forum = () =>  {
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState("");
     const [newComments, setNewComments] = useState({});
