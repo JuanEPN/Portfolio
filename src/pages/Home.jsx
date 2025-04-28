@@ -1,5 +1,5 @@
 import "./Home.css";
-import Encabezado from "../components/header/Encabezado.jsx";
+import Encabezado from "../components/Header/Encabezado.jsx";
 import About from "../components/about/About.jsx";
 import Projects from "../components/projects/Projects.jsx";
 import Skills from "../components/skills/Skills.jsx";
