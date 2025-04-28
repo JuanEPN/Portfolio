@@ -1,10 +1,10 @@
 import "./Home.css";
-import Encabezado from "../components/Header/Encabezado.jsx";
-import About from "../components/about/About.jsx";
-import Projects from "../components/projects/Projects.jsx";
-import Skills from "../components/skills/Skills.jsx";
-import Contact from "../components/contact/Contact.jsx";
-import Footer from "../components/footer/Footer.jsx";
+import Encabezado from "../components/Header/Encabezado";
+import About from "../components/about/About";
+import Projects from "../components/projects/Projects";
+import Skills from "../components/skills/Skills";
+import Contact from "../components/contact/Contact";
+import Footer from "../components/footer/Footer";
 import { Link } from "react-router-dom";
 
 const Home = () => {
