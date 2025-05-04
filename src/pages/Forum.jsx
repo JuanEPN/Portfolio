@@ -1,49 +1,67 @@
 import { useState } from "react";
 import "./Forum.css";
+import { db } from "../database/firebase";
+import {
+    collection,
+    addDoc,
+    onSnapshot,
+    query,
+    orderBy,
+    updateDoc,
+    doc,
+    arrayUnion,
+} from "firebase/firestore";
 
-const Forum = () =>  {
+import { useEffect } from "react";
+import { comment } from "postcss";
+
+
+const Forum = () => {
     const [posts, setPosts] = useState([]);
     const [newPost, setNewPost] = useState("");
     const [newComments, setNewComments] = useState({});
 
-    const handleSubmitPost = (e) => {
+    useEffect(() => {
+        const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            setPosts(
+                snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                    comments: doc.data().comments || [],
+                }))
+            );
+        });
+        return () => unsubscribe();
+    }, []); 
+
+
+
+
+    const handleSubmitPost = async (e) => {
         e.preventDefault();
         if (newPost.trim()) {
-            setPosts(prevPosts => [
-                ...prevPosts,
-                {
-                    id: Date.now(),
-                    content: newPost,
-                    comments: [],
-                    createdAt: new Date().toISOString()
-                }
-            ]);
+            await addDoc(collection(db, "posts"), {
+                content: newPost,
+                comments: [],
+                createdAt: new Date()
+            });
             setNewPost("");
         }
     };
 
-    const handleAddComment = (postId, e) => {
+    const handleAddComment = async (postId, e) => {
         e.preventDefault();
         const commentText = newComments[postId];
         if (commentText && commentText.trim()) {
-            setPosts(prevPosts =>
-                prevPosts.map(post => {
-                    if (post.id === postId) {
-                        return {
-                            ...post,
-                            comments: [
-                                ...post.comments,
-                                {
-                                    id: Date.now(),
-                                    content: commentText,
-                                    createdAt: new Date().toISOString()
-                                }
-                            ]
-                        };
-                    }
-                    return post;
-                })
-            );
+            const postRef = doc(db, "posts", postId);
+            await updateDoc(postRef, {
+                comments: arrayUnion({
+                    id: Date.now(), 
+                    content: commentText,
+                    createdAt: new Date().toISOString()
+                }),
+            });
             setNewComments(prevComments => ({
                 ...prevComments,
                 [postId]: ""

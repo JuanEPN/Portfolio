@@ -2,10 +2,30 @@ import "./Skills.css";
 
 const Skills = () => {
     const skills = [
-        { name: 'JavaScript', level: 'Medio' },
+        { name: 'JavaScript + React', level: 'Medio' },
         { name: 'Python', level: 'Alto' },
-        { name: 'Kotlin', level: 'Bajo' },
+        { name: 'Kotlin + Android Studio', level: 'Bajo' },
+        { name: 'Java + JavaSwing con ApacheNetBeans', level: 'Medio' },
+        { name: 'C++', level: 'Medio' },
+        { name: 'Bases de datos SQL', level: 'Medio' },
+        { name: 'Bases de datos noSQL', level: 'Bajo' },
+        { name: 'Metodologías Agiles (Scrum)', level: 'Alto' },
+        { name: 'Fundamentos en redes y ciberseguridad', level: 'Medio' },
+        { name: 'Diseño de contenido para interfaces de usuario', level: 'Bajo' }
     ];
+
+    const getLevelPercentage = (level) => {
+        switch (level) {
+            case 'Alto':
+                return '100%';
+            case 'Medio':
+                return '60%';
+            case 'Bajo':
+                return '30%';
+            default:
+                return '0%';
+        }
+    }; 
 
     return (
         <section className="skills-section">
@@ -19,7 +39,7 @@ const Skills = () => {
                         </div>
                         <div className="skill-bar">
                             <div className="skill-progress"
-                                style={{ width: `${skill.level}` }}
+                                style={{ width: getLevelPercentage(skill.level) }}
                             ></div>
                         </div>
                     </div>

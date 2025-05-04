@@ -1,5 +1,5 @@
 import './Footer.css';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +22,7 @@ const Footer = () => {
             <FaLinkedin className="social-icon" />
           </a>
           <a href="juan.pereira.neira@correounivalle.edu.co " target="_blank" rel="noopener noreferrer">
-            <FaTwitter className="social-icon" />
+            <FaEnvelope className="social-icon" />
           </a>
           <a href="juanestebanpereiraneira@gmail.com">
             <FaEnvelope className="social-icon" />
