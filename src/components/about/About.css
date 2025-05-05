@@ -25,30 +25,11 @@
     color: #333;
   }
   
-  .about-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .about-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+
   @media (min-width: 768px) {
     .about-content {
       flex-direction: row;
       align-items: center;
     }
     
-    .about-image {
-      justify-content: flex-end;
-    }
-    
-    .about-image img {
-      max-width: 80%;
-    }
   }

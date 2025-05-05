@@ -2,7 +2,6 @@
   padding: 3rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
 }
 
 .projects-title {
@@ -21,7 +20,7 @@
 }
 
 .project-card {
-  background: #fff;
+  background: #f8f9fa;
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
   padding: 2rem 1.5rem;
